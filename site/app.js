@@ -15,8 +15,21 @@ button2.addEventListener("click", function(){
 		tg.MainButton.hide();
 	}
 	else {
-		tg.MainButton.setText("Вы выбрали товар 1!");
-		item = "1";
-		tg.MainButton.show();
+		function showConfirm(message, callback) {
+			const confirmation = confirm(message);
+			callback(confirmation);
+		}
+		
+		
+		showConfirm('Вы уверены?', function(result) {
+			if (result) {
+				console.log('Пользователь подтвердил действие');
+				// Действия при подтверждении
+			} else {
+				console.log('Пользователь отменил действие');
+				// Действия при отмене
+			}
+		});
+		
 	}
 });
