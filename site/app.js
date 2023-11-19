@@ -9,13 +9,18 @@ let item = "";
 const button1 = document.getElementById('button1');
 const button2 = document.getElementById('button2');
 
-function showConfirm(message, callback) {
-    
-}
+
 
 
 button1.addEventListener("click", function(){
 	showConfirm('Вы уверены?', function(userConfirmed) {
+		if (userConfirmed) {
+			console.log('Пользователь подтвердил');
+			// Действия при подтверждении
+		} else {
+			console.log('Пользователь отменил');
+			// Действия при отмене
+		}
 	});
 });
 
