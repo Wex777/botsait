@@ -23,10 +23,12 @@ button2.addEventListener("click", function(){
 	else {
 		tg.MainButton.setText("Вы выбрали товар 6!");
 		item = "6";
+		tg.sendData(item)
 		tg.MainButton.show();
 		
 	}
 });
+
 Telegram.WebApp.onEvent("mainButtonClicked", function(){
 	tg.sendData(item);
 });
