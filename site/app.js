@@ -21,7 +21,7 @@ button2.addEventListener("click", function(){
 		}
 		
 		
-		showAlert('Вы уверены?', function(result) {
+		showAlert('Предупреждение?', function(result) {
 			if (result) {
 				console.log('Пользователь подтвердил действие');
 				// Действия при подтверждении
