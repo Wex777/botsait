@@ -9,11 +9,14 @@ let item = "";
 const button1 = document.getElementById('button1');
 const button2 = document.getElementById('button2');
 
-
+function showConfirm(message, callback) {
+    
+}
 
 
 button1.addEventListener("click", function(){
-	
+	showConfirm('Вы уверены?', function(userConfirmed) {
+	});
 });
 
 button2.addEventListener("click", function(){
@@ -29,9 +32,7 @@ button2.addEventListener("click", function(){
 		
 	}
 });
-function showConfirm(message, callback) {
-    
-}
+
 
 Telegram.WebApp.onEvent("mainButtonClicked", function(){
 	showConfirm('Вы уверены?', function(userConfirmed) {
