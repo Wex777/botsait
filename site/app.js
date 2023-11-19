@@ -20,8 +20,8 @@ button2.addEventListener("click", function(){
 			callback(confirmation);
 		}
 		
-		
-		showPopup('Предупреждение?', function(result) {
+		const buttons = [{"type":"close"}]
+		showPopup(buttons, function(result) {
 			if (result) {
 				console.log('Пользователь подтвердил действие');
 				// Действия при подтверждении
