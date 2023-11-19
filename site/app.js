@@ -14,7 +14,8 @@ const button2 = document.getElementById('button2');
 
 
 button1.addEventListener("click", function(){
-	
+	tg.showConfirm('Вы уверены?', function(userConfirmed) {
+	});
 });
 
 button2.addEventListener("click", function(){
