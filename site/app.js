@@ -6,6 +6,7 @@ tg.MainButton.color = '#2cab37';
 
 let item = "";
 
+
 const button1 = document.getElementById('button1');
 const button2 = document.getElementById('button2');
 
@@ -24,10 +25,6 @@ button2.addEventListener("click", function(){
 	else {
 		tg.MainButton.setText("Вы выбрали товар 6!");
 		item = "6";
-		showConfirm('Вы уверены?', function(userConfirmed) {
-		
-		});
-		
 		tg.MainButton.show();
 		
 	}}catch(error){
@@ -37,7 +34,7 @@ button2.addEventListener("click", function(){
 
 
 Telegram.WebApp.onEvent("mainButtonClicked", function(){
-	showConfirm('Вы уверены?', function(userConfirmed) {
+	tg.showConfirm('Вы уверены?', function(userConfirmed) {
 	});
 	tg.sendData(item);
 });
