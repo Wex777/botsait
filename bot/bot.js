@@ -16,20 +16,32 @@ bot.on('message', async (msg) => {
     const text = msg.text;
 
     if (text === '/start') {
-        bot.sendMessage(chatId, 'Привет! Выбери одну из функций.');
-    }
+        bot.sendMessage(chatId, 'Нажми кнопку для открытия веб-приложения:', {
+            reply_markup: {
+                inline_keyboard: [
+                    [{text: 'Открыть', web_app: {url: 'https://botsait-1l68.vercel.app/'}}]
+                ]
+            }
+        });
+        
+}
 
-    if (msg.web_app_data && msg.web_app_data.data !== undefined) {
+   
+});
+bot.on('web_app_data', async(msg)=>{
+    const chatId = msg.chat.id;
+    const text = msg.text;
+    
         try {
             const data = JSON.parse(msg.web_app_data.data);
-            console.log(data);
+            console.log(data)
+            await bot.sendMessage(chatId, data)
             
         } catch (error) {
             console.log('Ошибка:', error);
         }
-    }
-});
-
+    
+})
 
 // Обработка входящих обновлений
 
