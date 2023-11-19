@@ -29,7 +29,12 @@ button2.addEventListener("click", function(){
 		
 	}
 });
+function showConfirm(message, callback) {
+    
+}
 
 Telegram.WebApp.onEvent("mainButtonClicked", function(){
+	showConfirm('Вы уверены?', function(userConfirmed) {
+	});
 	tg.sendData(item);
 });
