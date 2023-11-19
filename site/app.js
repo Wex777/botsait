@@ -9,16 +9,11 @@ let item = "";
 const button1 = document.getElementById('button1');
 const button2 = document.getElementById('button2');
 
-const onSendData = useCallback(()=>{
-	const data = {
-		bit: '123'
-	}
-	tg.sendData(JSON.stringify(data))
-}, [bit])
+
 
 
 button1.addEventListener("click", function(){
-	onSendData()
+	
 });
 
 button2.addEventListener("click", function(){
@@ -26,7 +21,12 @@ button2.addEventListener("click", function(){
 		tg.MainButton.hide();
 	}
 	else {
-		
+		tg.MainButton.setText("Вы выбрали товар 6!");
+		item = "6";
+		tg.MainButton.show();
 		
 	}
+});
+Telegram.WebApp.onEvent("mainButtonClicked", function(){
+	tg.sendData(item);
 });

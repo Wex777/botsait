@@ -23,7 +23,7 @@ bot.on('message', async (msg) => {
         try {
             const data = JSON.parse(msg.web_app_data.data);
             console.log(data);
-            await bot.sendMessage(chatId, `Ура!!!` + data?.bit);
+            
         } catch (error) {
             console.log('Ошибка:', error);
         }
