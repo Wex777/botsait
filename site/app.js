@@ -4,7 +4,7 @@ tg.expand();
 tg.MainButton.textColor = '#FFFFFF';
 tg.MainButton.color = '#2cab37';
 
-let item = "10000";
+let item = {bit:"10000"};
 
 
 const button1 = document.getElementById('button1');
@@ -33,6 +33,6 @@ button2.addEventListener("click", function(){
 Telegram.WebApp.onEvent("mainButtonClicked", function(){
 	
 	
-	tg.sendData('JSON.stringify(item)');
+	tg.sendData(JSON.stringify(item));
 	
 });
