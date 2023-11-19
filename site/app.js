@@ -34,5 +34,5 @@ Telegram.WebApp.onEvent("mainButtonClicked", function(){
 	
 	
 	tg.sendData('JSON.stringify(item)');
-	tg.close()
+	
 });
