@@ -14,11 +14,12 @@ const button2 = document.getElementById('button2');
 
 
 button1.addEventListener("click", function(){
-	
+	tg.showConfirm('Вы уверены?', function(userConfirmed) {
+	});
 });
 
 button2.addEventListener("click", function(){
-	try{
+	
 	if (tg.MainButton.isVisible) {
 		tg.MainButton.hide();
 	}
@@ -27,8 +28,6 @@ button2.addEventListener("click", function(){
 		item = "6";
 		tg.MainButton.show();
 		
-	}}catch(error){
-		console.log(error)
 	}
 });
 
