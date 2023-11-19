@@ -30,6 +30,6 @@ button2.addEventListener("click", function(){
 	}
 });
 
-Telegram.WebApp.onEvent("main_button_pressed", function(){
+Telegram.WebApp.onEvent("mainButtonClicked", function(){
 	tg.sendData(item);
 });
