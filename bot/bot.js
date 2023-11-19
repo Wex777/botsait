@@ -11,21 +11,25 @@ const bot = new TelegramBot(token);
 
 
 
-bot.on('message', (msg) => {
+bot.on('message', async (msg) => {
     const chatId = msg.chat.id;
     const text = msg.text;
-    if(text === '/start'){
-        bot.sendMessage(chatId, 'Привет! Выбери одну из функций.')
+
+    if (text === '/start') {
+        bot.sendMessage(chatId, 'Привет! Выбери одну из функций.');
     }
-    if(msg?.web_app_data.data){
-        try{
-            const data = JSON.parse(msg?.web_app_data.data)
-            bot.sendMessage(chatId, `Ура!!! ${data?.bit}`)
-        }catch{
-            console.log('Ошибка')
+
+    if (msg.web_app_data && msg.web_app_data.data !== undefined) {
+        try {
+            const data = JSON.parse(msg.web_app_data.data);
+            console.log(data);
+            await bot.sendMessage(chatId, `Ура!!!` + data?.bit);
+        } catch (error) {
+            console.log('Ошибка:', error);
         }
     }
 });
+
 
 // Обработка входящих обновлений
 
@@ -46,5 +50,5 @@ app.post('/webhook', (req, res) => {
   app.listen(port, () => {
     console.log(`Сервер запущен на порту ${port}`);
     // Установка вебхука на сервере Telegram
-    bot.setWebHook('https://05ce-5-144-77-177.ngrok-free.app/webhook')
+    bot.setWebHook('https://e2c8-5-144-77-177.ngrok-free.app/webhook')
   });

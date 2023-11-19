@@ -9,11 +9,16 @@ let item = "";
 const button1 = document.getElementById('button1');
 const button2 = document.getElementById('button2');
 
-button1.addEventListener("click", function(){
+const onSendData = useCallback(()=>{
 	const data = {
 		bit: '123'
 	}
 	tg.sendData(JSON.stringify(data))
+}, [bit])
+
+
+button1.addEventListener("click", function(){
+	onSendData()
 });
 
 button2.addEventListener("click", function(){
