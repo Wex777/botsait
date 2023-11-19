@@ -13,15 +13,7 @@ const button2 = document.getElementById('button2');
 
 
 button1.addEventListener("click", function(){
-	showConfirm('Вы уверены?', function(userConfirmed) {
-		if (userConfirmed) {
-			console.log('Пользователь подтвердил');
-			// Действия при подтверждении
-		} else {
-			console.log('Пользователь отменил');
-			// Действия при отмене
-		}
-	});
+	
 });
 
 button2.addEventListener("click", function(){
@@ -31,7 +23,9 @@ button2.addEventListener("click", function(){
 	else {
 		tg.MainButton.setText("Вы выбрали товар 6!");
 		item = "6";
+		showConfirm('Вы уверены?', function(userConfirmed) {
 		
+		});
 		
 		tg.MainButton.show();
 		
