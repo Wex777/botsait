@@ -17,6 +17,7 @@ button1.addEventListener("click", function(){
 });
 
 button2.addEventListener("click", function(){
+	try{
 	if (tg.MainButton.isVisible) {
 		tg.MainButton.hide();
 	}
@@ -29,6 +30,8 @@ button2.addEventListener("click", function(){
 		
 		tg.MainButton.show();
 		
+	}}catch(error){
+		console.log(error)
 	}
 });
 
