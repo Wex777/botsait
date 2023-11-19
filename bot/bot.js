@@ -24,24 +24,18 @@ bot.on('message', async (msg) => {
             }
         });
         
-}
-
+    }
+    if(msg?.web_app_data?.data){
+        try{
+            const data = JSON.parse(msg?.web_app_data?.data)
+            await bot.sendMessage(chatId, 'Спасибо!'+ data)
+        }catch(error){
+            console.log(error)
+        }
+    }
    
 });
-bot.on('web_app_data', async(msg)=>{
-    const chatId = msg.chat.id;
-    const text = msg.text;
-    
-        try {
-            const data = JSON.parse(msg.web_app_data.data);
-            console.log(data)
-            await bot.sendMessage(chatId, data)
-            
-        } catch (error) {
-            console.log('Ошибка:', error);
-        }
-    
-})
+
 
 // Обработка входящих обновлений
 
