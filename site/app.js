@@ -23,6 +23,7 @@ button2.addEventListener("click", function(){
 	else {
 		tg.MainButton.setText("Вы выбрали товар 6!");
 		item = "6";
+		console.log('отправка')
 		tg.sendData(item)
 		tg.MainButton.show();
 		
