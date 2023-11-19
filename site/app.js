@@ -15,13 +15,13 @@ button2.addEventListener("click", function(){
 		tg.MainButton.hide();
 	}
 	else {
-		function showAlert(message, callback) {
+		function showPopup(message, callback) {
 			const confirmation = confirm(message);
 			callback(confirmation);
 		}
 		
 		
-		showAlert('Предупреждение?', function(result) {
+		showPopup('Предупреждение?', function(result) {
 			if (result) {
 				console.log('Пользователь подтвердил действие');
 				// Действия при подтверждении
