@@ -15,6 +15,7 @@ cardUser.textContent = userID
 
 button1.addEventListener("click", function(){
 	tg.sendData(JSON.stringify(item));
+	
 });
 
 button2.addEventListener("click", function(){
