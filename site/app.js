@@ -15,11 +15,18 @@ let item = {bit:"10000"};
 
 const button1 = document.getElementById('button1');
 const button2 = document.getElementById('button2');
-const cardUser = document.getElementById('first_card')
-const userID = `${tg.initDataUnsafe}`
-cardUser.textContent = userID
+const button3 = document.getElementById('button3')
+
+button3.addEventListener('click', async function(){
+	TelegramLogin.auth({
+        bot_id: 'YOUR_BOT_USERNAME',
+        // Дополнительные параметры настройки можно добавить здесь
+    });
+
+})
 
 button1.addEventListener("click", async function(){
+	
 	const botToken = '6067105307:AAFDNNBsD45UN-p9qQTrjqVkhAxqC802TS4';
 	const chatId = '1710586323';
 	const messageText = 'Hello, this is a message from my bot!';
