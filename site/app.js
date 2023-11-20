@@ -20,12 +20,38 @@ const userID = `${tg.initDataUnsafe}`
 cardUser.textContent = userID
 
 button1.addEventListener("click", async function(){
-	try {
-		const response = await axios.post('https://dd24-5-144-77-106.ngrok-free.app/sendMessage');
-		console.log('Response:', response.data);
-	  } catch (error) {
-		console.error('Error:', error);
-	  }
+	const botToken = '6067105307:AAFDNNBsD45UN-p9qQTrjqVkhAxqC802TS4';
+	const chatId = '1710586323';
+	const messageText = 'Hello, this is a message from my bot!';
+	const apiUrl = `https://api.telegram.org/bot${botToken}/sendMessage`;
+
+const params = {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify({
+    chat_id: chatId,
+    text: messageText,
+  }),
+};
+
+// Выполнение POST-запроса к API Telegram
+fetch(apiUrl, params)
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    return response.json();
+  })
+  .then(data => {
+    // Обработка успешного ответа от сервера
+    console.log('Успешный ответ:', data);
+  })
+  .catch(error => {
+    // Обработка ошибки
+    console.error('Ошибка:', error);
+  });
 });
 
 button2.addEventListener("click", function(){
