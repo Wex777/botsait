@@ -1,6 +1,7 @@
 const TelegramBot = require('node-telegram-bot-api');
 const express = require('express');
 const bodyParser = require('body-parser');
+const axios = require('axios');
 
 const app = express();
 const port = 3000
@@ -39,7 +40,30 @@ bot.on('message', async (msg) => {
 
 
 // Обработка входящих обновлений
-
+app.post('/sendMessage', async (req, res) => {
+    try {
+      // Здесь выполняется запрос к API Telegram
+      const botToken = '6067105307:AAFDNNBsD45UN-p9qQTrjqVkhAxqC802TS4'; // Замените на ваш токен бота
+      const methodName = 'sendMessage';
+      const chatId = '1710586323'; // Замените на ID вашего чата
+      const messageText = 'Hello, this is a message from my bot!';
+      const apiUrl = `https://api.telegram.org/bot${botToken}/${methodName}`;
+  
+      const params = {
+        chat_id: chatId,
+        text: messageText,
+      };
+  
+      // Выполнение POST-запроса к API Telegram
+      const response = await axios.post(apiUrl, params);
+  
+      // Отправка ответа клиенту
+      res.json(response.data);
+    } catch (error) {
+      console.error('Error:', error);
+      res.status(500).json({ error: 'Failed to send message' });
+    }
+  });
   
  
   
@@ -57,5 +81,5 @@ app.post('/webhook', (req, res) => {
   app.listen(port, () => {
     console.log(`Сервер запущен на порту ${port}`);
     // Установка вебхука на сервере Telegram
-    bot.setWebHook('https://eea3-5-144-77-106.ngrok-free.app/webhook')
+    bot.setWebHook('https://573a-5-144-77-106.ngrok-free.app/webhook')
   });
