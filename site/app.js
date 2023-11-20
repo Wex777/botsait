@@ -19,7 +19,7 @@ const button3 = document.getElementById('button3')
 
 button3.addEventListener('click', async function(){
 	TWidgetLogin.auth({
-        bot_id: 'YOUR_BOT_USERNAME',
+        bot_id: 'Prilozhenie123Bot',
         // Дополнительные параметры настройки можно добавить здесь
     });
 
