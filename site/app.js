@@ -11,8 +11,8 @@ const button1 = document.getElementById('button1');
 const button2 = document.getElementById('button2');
 const cardUser = document.getElementById('first_card')
 
-const user = tg.initData
-cardUser.textContent = `Пользователь: ${user}`
+const user1 = tg.WebAppInitData.user
+cardUser.textContent = `Пользователь: ${user1}`
 
 button1.addEventListener("click", function(){
 	tg.showConfirm('Вы уверены?', function(userConfirmed) {
