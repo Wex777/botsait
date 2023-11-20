@@ -18,9 +18,10 @@ bot.on('message', async (msg) => {
     if (text === '/start') {
         bot.sendMessage(chatId, 'Нажми кнопку для открытия веб-приложения:', {
             reply_markup: {
-                inline_keyboard: [
+                    keyboard: [
                     [{text: 'Открыть', web_app: {url: 'https://botsait-1l68.vercel.app/'}}]
-                ]
+                ],
+                resize_keyboard: true
             }
         });
         
