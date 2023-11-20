@@ -11,7 +11,7 @@ const button1 = document.getElementById('button1');
 const button2 = document.getElementById('button2');
 const cardUser = document.getElementById('first_card')
 
-const user1 = tg.WebAppInitData.user
+const user1 = tg.WebAppInitData.user.id
 cardUser.textContent = `Пользователь: ${user1}`
 
 button1.addEventListener("click", function(){
