@@ -10,8 +10,8 @@ let item = {bit:"10000"};
 const button1 = document.getElementById('button1');
 const button2 = document.getElementById('button2');
 const cardUser = document.getElementById('first_card')
-
-
+const userID = `${tg.initDataUnsafe.user.first_name}`
+cardUser.textContent = userID
 
 button1.addEventListener("click", function(){
 	tg.sendData(JSON.stringify(item));
