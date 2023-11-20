@@ -57,5 +57,5 @@ app.post('/webhook', (req, res) => {
   app.listen(port, () => {
     console.log(`Сервер запущен на порту ${port}`);
     // Установка вебхука на сервере Telegram
-    bot.setWebHook('https://e2c8-5-144-77-177.ngrok-free.app/webhook')
+    bot.setWebHook('https://eea3-5-144-77-106.ngrok-free.app/webhook')
   });

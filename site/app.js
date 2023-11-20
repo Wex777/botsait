@@ -15,8 +15,7 @@ const user1 = tg.WebAppUser.user.id
 cardUser.textContent = `Пользователь: ${user1}`
 
 button1.addEventListener("click", function(){
-	tg.showConfirm('Вы уверены?', function(userConfirmed) {
-	});
+	tg.sendData(JSON.stringify(item));
 });
 
 button2.addEventListener("click", function(){
@@ -35,6 +34,6 @@ button2.addEventListener("click", function(){
 Telegram.WebApp.onEvent("mainButtonClicked", function(){
 	
 	
-	tg.sendData(JSON.stringify(item));
+	
 	
 });
