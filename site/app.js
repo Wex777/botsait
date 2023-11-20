@@ -18,7 +18,7 @@ const button2 = document.getElementById('button2');
 const button3 = document.getElementById('button3')
 
 button3.addEventListener('click', async function(){
-	TWidgetLogin.auth({
+	TelegramLogin.auth({
         bot_id: 'Prilozhenie123Bot',
         // Дополнительные параметры настройки можно добавить здесь
     });
