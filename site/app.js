@@ -21,13 +21,7 @@ cardUser.textContent = userID
 
 button1.addEventListener("click", async function(){
 	try {
-		app.use((req, res, next) => {
-			res.header('Access-Control-Allow-Origin', '*');
-			res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
-			next();
-		  });
-		// Отправка POST-запроса к вашему серверу
-		const response = await axios.post('https://573a-5-144-77-106.ngrok-free.app/sendMessage');
+		const response = await axios.post('https://dd24-5-144-77-106.ngrok-free.app/sendMessage');
 		console.log('Response:', response.data);
 	  } catch (error) {
 		console.error('Error:', error);

@@ -1,11 +1,15 @@
 // Необходимые импорты
 const express = require('express');
 const axios = require('axios');
-const ngrok = require('ngrok');
+
 // Создание приложения Express
 const app = express();
 const port = 3000; // Порт для запуска сервера
-
+app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+    next();
+  });
 // Роут для обработки запросов от клиента
 app.post('/sendMessage', async (req, res) => {
   try {
@@ -32,18 +36,10 @@ app.post('/sendMessage', async (req, res) => {
   }
 });
 
-(async () => {
-    try {
-      const url = await ngrok.connect(port);
-      console.log(`Server is running at ${url}`);
-  
-      app.listen(port, () => {
-        console.log(`Express server is running on port ${port}`);
-      });
-    } catch (error) {
-      console.error('Ngrok error:', error);
-    }
-  })();
+// Запуск сервера
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
+});
 
 
 
