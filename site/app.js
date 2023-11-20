@@ -21,7 +21,7 @@ cardUser.textContent = userID
 button1.addEventListener("click", async function(){
 	try {
 		// Отправка POST-запроса к вашему серверу
-		const response = await axios.post('http://localhost:3000/sendMessage');
+		const response = await axios.post('/sendMessage');
 		console.log('Response:', response.data);
 	  } catch (error) {
 		console.error('Error:', error);
