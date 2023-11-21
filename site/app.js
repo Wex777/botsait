@@ -17,13 +17,7 @@ const button1 = document.getElementById('button1');
 const button2 = document.getElementById('button2');
 const button3 = document.getElementById('button3')
 
-button3.addEventListener('click', async function(){
-	TelegramLogin.auth({
-        bot_id: 'Prilozhenie123Bot',
-        // Дополнительные параметры настройки можно добавить здесь
-    });
 
-})
 
 button1.addEventListener("click", async function(){
 	
