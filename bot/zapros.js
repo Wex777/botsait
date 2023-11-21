@@ -1,45 +1,51 @@
-// Необходимые импорты
-const express = require('express');
-const axios = require('axios');
+// // Необходимые импорты
+// const express = require('express');
+// const axios = require('axios');
 
-// Создание приложения Express
-const app = express();
-const port = 3000; // Порт для запуска сервера
-app.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', '*');
-    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
-    next();
-  });
-// Роут для обработки запросов от клиента
-app.post('/sendMessage', async (req, res) => {
-  try {
-    // Здесь выполняется запрос к API Telegram
-    const botToken = '6067105307:AAFDNNBsD45UN-p9qQTrjqVkhAxqC802TS4'; // Замените на ваш токен бота
-    const methodName = 'sendMessage';
-    const chatId = '1710586323'; // Замените на ID вашего чата
-    const messageText = 'Hello, this is a message from my bot!';
-    const apiUrl = `https://api.telegram.org/bot${botToken}/${methodName}`;
+// // Создание приложения Express
+// const app = express();
+// const port = 3000; // Порт для запуска сервера
+// app.use((req, res, next) => {
+//     res.header('Access-Control-Allow-Origin', '*');
+//     res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+//     next();
+//   });
+// // Роут для обработки запросов от клиента
+// app.post('/sendMessage', async (req, res) => {
+//   try {
+//     // Здесь выполняется запрос к API Telegram
+//     const botToken = '6067105307:AAFDNNBsD45UN-p9qQTrjqVkhAxqC802TS4'; // Замените на ваш токен бота
+//     const methodName = 'sendMessage';
+//     const chatId = '1710586323'; // Замените на ID вашего чата
+//     const messageText = 'Hello, this is a message from my bot!';
+//     const apiUrl = `https://api.telegram.org/bot${botToken}/${methodName}`;
 
-    const params = {
-      chat_id: chatId,
-      text: messageText,
-    };
+//     const params = {
+//       chat_id: chatId,
+//       text: messageText,
+//     };
 
-    // Выполнение POST-запроса к API Telegram
-    const response = await axios.post(apiUrl, params);
+//     // Выполнение POST-запроса к API Telegram
+//     fetch(apiUrl, params)
+//   .then(response => {
+//     if (!response.ok) {
+//       throw new Error('Network response was not ok');
+//     }
+//     return response.json();
+//   })
+//   .then(data => {
+//     // Обработка успешного ответа от сервера
+//     console.log('Успешный ответ:', data);
+//   })
+//   .catch(error => {
+//     // Обработка ошибки
+//     console.error('Ошибка:', error);
+//   });
 
-    // Отправка ответа клиенту
-    res.json(response.data);
-  } catch (error) {
-    console.error('Error:', error);
-    res.status(500).json({ error: 'Failed to send message' });
-  }
-});
-
-// Запуск сервера
-app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
-});
+// // Запуск сервера
+// app.listen(port, () => {
+//   console.log(`Server is running on port ${port}`);
+// });
 
 
 
