@@ -47,8 +47,7 @@ fetch(apiUrl, params)
     return response.json();
   })
   .then(data => {
-    // Обработка успешного ответа от сервера
-    alert('Успешный ответ:', data);
+    
   })
   .catch(error => {
     // Обработка ошибки
