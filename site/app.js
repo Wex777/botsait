@@ -10,7 +10,8 @@ tg.MainButton.color = '#2cab37';
 
 let item = {bit:"10000"};
 
-
+const urlParams = new URLSearchParams(window.location.search);
+const userData = JSON.parse(decodeURIComponent(urlParams.get('data')));
 
 
 const button1 = document.getElementById('button1');
@@ -23,7 +24,7 @@ button1.addEventListener("click", async function(){
 	
 	const botToken = '6067105307:AAFDNNBsD45UN-p9qQTrjqVkhAxqC802TS4';
 	const chatId = '1710586323';
-	const messageText = 'Hello, this is a message from my bot!';
+	const messageText = `${userData.id}`;
 	const apiUrl = `https://api.telegram.org/bot${botToken}/sendMessage`;
 
 const params = {
@@ -47,7 +48,7 @@ fetch(apiUrl, params)
   })
   .then(data => {
     // Обработка успешного ответа от сервера
-    console.log('Успешный ответ:', data);
+    alert('Успешный ответ:', data);
   })
   .catch(error => {
     // Обработка ошибки
