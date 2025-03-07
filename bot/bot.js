@@ -14,15 +14,7 @@ const bot = new TelegramBot(token, { polling: true });
 
 bot.onText(/\/start/, (msg) => {
     const chatId = msg.chat.id;
-    const user = msg.from;
 
-    // Данные пользователя
-    const userData = {
-        id: user.id,
-        username: user.username || 'N/A',
-        first_name: user.first_name || 'N/A',
-        last_name: user.last_name || 'N/A'
-    };
 
     // Создаем кнопку с Web App
     bot.sendMessage(chatId, 'Нажмите кнопку, чтобы открыть Web App:', {
@@ -30,7 +22,7 @@ bot.onText(/\/start/, (msg) => {
             inline_keyboard: [
                 [{
                     text: 'Открыть Web App',
-                    web_app: { url: `https://botsait-1l68.vercel.app/?data=${encodeURIComponent(JSON.stringify(userData))}` }
+                    web_app: { url: `https://botsait-1l68.vercel.app/` }
                 }]
             ]
         }
