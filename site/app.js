@@ -2,7 +2,7 @@ Telegram.WebApp.ready();
 
 // Получение данных пользователя
 const user = Telegram.WebApp.initDataUnsafe.user;
-console.log("User ID:", user.id);
+alert("User ID:", user.id);
 
 
 // Отправка данных обратно в бота
