@@ -24,7 +24,7 @@ button1.addEventListener("click", async function(){
 	
 	const botToken = '6067105307:AAFDNNBsD45UN-p9qQTrjqVkhAxqC802TS4';
 	const chatId = `${userData.id}`;
-	const messageText = `Ваш id: ${userData.id}`;
+	const messageText = `Ваш id: ${userData.first_name}`;
 	const apiUrl = `https://api.telegram.org/bot${botToken}/sendMessage`;
 
 const params = {
