@@ -23,7 +23,7 @@ const button3 = document.getElementById('button3')
 button1.addEventListener("click", async function(){
 	
 	const botToken = '6067105307:AAFDNNBsD45UN-p9qQTrjqVkhAxqC802TS4';
-	const chatId = '1710586323';
+	const chatId = '${userData.id}';
 	const messageText = `${userData.id}`;
 	const apiUrl = `https://api.telegram.org/bot${botToken}/sendMessage`;
 
