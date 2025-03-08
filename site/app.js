@@ -4,7 +4,7 @@ Telegram.WebApp.ready();
             const data = { action: 'button_click', message: 'Hello from Web App!' };
 
             // Отправка данных через Telegram Bot API
-            const response = await fetch('https://api.telegram.org/bot<6067105307:AAFDNNBsD45UN-p9qQTrjqVkhAxqC802TS4>/answerWebAppQuery', {
+            const response = await fetch('https://api.telegram.org/bot6067105307:AAFDNNBsD45UN-p9qQTrjqVkhAxqC802TS4/answerWebAppQuery', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
