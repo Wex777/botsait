@@ -1,14 +1,29 @@
-let tg = window.Telegram.WebApp;
-tg.expand();
+Telegram.WebApp.ready();
 
-// Получение данных пользователя
-const user = Telegram.WebApp.initDataUnsafe.user;
+        document.getElementById('sendDataButton').addEventListener('click', async () => {
+            const data = { action: 'button_click', message: 'Hello from Web App!' };
 
+            // Отправка данных через Telegram Bot API
+            const response = await fetch('https://api.telegram.org/bot<YOUR_BOT_TOKEN>/answerWebAppQuery', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    web_app_query_id: Telegram.WebApp.initDataUnsafe.query_id, // Уникальный ID запроса
+                    result: {
+                        type: 'article',
+                        id: '1',
+                        title: 'Данные из Web App',
+                        input_message_content: {
+                            message_text: JSON.stringify(data)
+                        }
+                    }
+                })
+            });
 
+            const result = await response.json();
+            console.log("Ответ от Telegram API:", result);
 
-// Отправка данных обратно в бота
-document.getElementById('sendDataButton').addEventListener('click', () => {
-    const data = { action: 'button_click', message: 'Hello from Web App!' };
-    Telegram.WebApp.sendData(JSON.stringify(data));
-    alert(user.id)
-});
+    
+        });

@@ -28,14 +28,16 @@ bot.onText(/\/start/, (msg) => {
         }
     });
 });
-bot.on('web_app_data', (query) => {
-    const data = JSON.parse(query.data); // Данные, отправленные из веб-приложения
-    const chatId = query.from.id;
+bot.on('message', (msg) => {
+    if (msg.web_app_data) {
+        const data = JSON.parse(msg.web_app_data.data); // Данные, отправленные из веб-приложения
+        const chatId = msg.chat.id;
 
-    console.log("Получены данные:", data);
+        console.log("Получены данные:", data);
 
-    // Отправка ответа пользователю
-    bot.sendMessage(chatId, `Вы отправили: ${data.message}`);
+        // Отправка ответа пользователю
+        bot.sendMessage(chatId, `Вы отправили: ${data.message}`);
+    }
 });
 // Обработчик ошибок
 bot.on('polling_error', (error) => {
